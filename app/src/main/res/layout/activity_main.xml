@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout 
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resume Analyzer"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/selectFileButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Resume File"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/selectedFileTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No file selected"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/analyzeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Analyze Resume"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Add Make Resume Button -->
+    <Button
+        android:id="@+id/makeResumeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Make Resume"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:textColor="@android:color/white" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/copyAllButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Copy All Results"
+        android:visibility="gone"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:textColor="@android:color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/analysisResultTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textIsSelectable="true"
+            android:padding="8dp"
+            android:lineSpacingExtra="4dp" />
+    </ScrollView>
+
+</LinearLayout>
+</layout>

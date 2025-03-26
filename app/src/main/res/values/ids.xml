@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="overallFeedbackText" type="id" />
+    <item name="keywordsSuggestionsText" type="id" />
+    <item name="formattingSuggestionsText" type="id" />
+    <item name="contentSuggestionsText" type="id" />
+    <item name="structureSuggestionsText" type="id" />
+    <item name="backButton" type="id" />
+    <item name="formattingSuggestionsTitle" type="id" />
+    <item name="contentSuggestionsTitle" type="id" />
+    <item name="structureSuggestionsTitle" type="id" />
+    <item name="overallFeedbackTitle" type="id" />
+    <item name="keywordsSuggestionsTitle" type="id" />
+    <item name="templateSpinner" type="id" />
+    <item name="exportPdfButton" type="id" />
+    <item name="generateResumeButton" type="id" />
+    <item name="resumePreviewTextView" type="id" />
+    <item name="experienceEditText" type="id" />
+    <item name="skillsEditText" type="id" />
+    <item name="educationEditText" type="id" />
+    <item name="phoneEditText" type="id" />
+    <item name="emailEditText" type="id" />
+    <item name="nameEditText" type="id" />
+</resources>
