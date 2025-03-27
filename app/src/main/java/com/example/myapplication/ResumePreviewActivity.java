@@ -1,22 +1,22 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import com.google.android.material.button.MaterialButton;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 
 public class ResumePreviewActivity extends AppCompatActivity {
 
@@ -26,6 +26,7 @@ public class ResumePreviewActivity extends AppCompatActivity {
     private ResumeTemplate template;
     private String name, email, phone, address, links, objective, experience, education, certifications, skills, languages;
     private Uri imageUri;
+    private static final int STORAGE_WRITE_PERMISSION_CODE = 104;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +66,13 @@ public class ResumePreviewActivity extends AppCompatActivity {
 
         resumePreviewWebView.loadDataWithBaseURL(null, htmlContent, "text/html", "UTF-8", null);
 
-        downloadPdfButton.setOnClickListener(v -> exportToPdf());
+        downloadPdfButton.setOnClickListener(v -> {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_WRITE_PERMISSION_CODE);
+            } else {
+                exportToPdf();
+            }
+        });
     }
 
     private void exportToPdf() {
@@ -82,9 +89,19 @@ public class ResumePreviewActivity extends AppCompatActivity {
             document.close();
             fos.close();
             Toast.makeText(this, "Resume downloaded to " + file.getAbsolutePath(), Toast.LENGTH_LONG).show();
-        } catch (IOException | DocumentException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(this, "Error downloading PDF: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error downloading PDF: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == STORAGE_WRITE_PERMISSION_CODE && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            exportToPdf();
+        } else {
+            Toast.makeText(this, "Write permission denied, cannot save PDF", Toast.LENGTH_SHORT).show();
         }
     }
 }

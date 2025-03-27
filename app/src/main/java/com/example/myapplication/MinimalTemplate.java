@@ -11,6 +11,7 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -58,10 +59,15 @@ public class MinimalTemplate implements ResumeTemplate {
             try {
                 InputStream inputStream = context.getContentResolver().openInputStream(imageUri);
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                Image img = Image.getInstance(bitmap, null);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                byte[] byteArray = stream.toByteArray();
+                Image img = Image.getInstance(byteArray);
                 img.scaleToFit(80, 80);
                 img.setAbsolutePosition(450, 750); // Top-right corner
                 document.add(img);
+                inputStream.close();
+                stream.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
