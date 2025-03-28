@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.myapplication.utils.PrefsManager;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -22,14 +21,12 @@ public class SignupFragment extends Fragment {
     private TextInputEditText passwordInput;
     private TextInputEditText confirmPasswordInput;
     private MaterialButton signupButton;
-    private PrefsManager prefsManager;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_signup, container, false);
 
-        prefsManager = new PrefsManager(requireContext());
         nameInput = view.findViewById(R.id.nameInput);
         emailInput = view.findViewById(R.id.emailInput);
         passwordInput = view.findViewById(R.id.passwordInput);
@@ -58,13 +55,10 @@ public class SignupFragment extends Fragment {
         }
 
         // TODO: Implement actual registration
-        // For now, just save the session and proceed
-        prefsManager.setLoggedIn(name, email);
-        
+        // For now, just proceed to MainActivity
         Toast.makeText(getContext(), "Account created successfully", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getActivity(), MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-        requireActivity().finish();
+        getActivity().finish();
     }
 } 

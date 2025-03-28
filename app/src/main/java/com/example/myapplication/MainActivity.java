@@ -5,33 +5,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
-import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.databinding.DataBindingUtil;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
-import com.example.myapplication.utils.PrefsManager;
-import com.google.android.material.navigation.NavigationView;
 
-import androidx.appcompat.app.AppCompatDelegate;
-
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private Uri selectedFileUri;
     private final ResumeAnalyzer resumeAnalyzer = new ResumeAnalyzer();
-    private DrawerLayout drawerLayout;
-    private PrefsManager prefsManager;
 
     private final ActivityResultLauncher<String[]> filePickerLauncher = registerForActivityResult(
             new ActivityResultContracts.OpenDocument(),
@@ -54,54 +42,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        prefsManager = new PrefsManager(this);
-
-        // Set up toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        // Set up dark mode switch
-        SwitchCompat themeSwitch = toolbar.findViewById(R.id.themeSwitch);
-        themeSwitch.setChecked(isNightModeEnabled());
-        themeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            setNightMode(isChecked);
-        });
-
-        // Set up navigation drawer
-        drawerLayout = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-        // Set up user info in nav header
-        View headerView = navigationView.getHeaderView(0);
-        TextView nameText = headerView.findViewById(R.id.nav_header_name);
-        TextView emailText = headerView.findViewById(R.id.nav_header_email);
-        nameText.setText(prefsManager.getUserName());
-        emailText.setText(prefsManager.getUserEmail());
-
-        // Set up card click listeners
-        CardView analyzeCard = findViewById(R.id.analyzeResumeCard);
-        CardView createCard = findViewById(R.id.createResumeCard);
-
-        analyzeCard.setOnClickListener(v -> {
-            // Handle analyze resume click
-            analyzeResume();
-        });
-
-        createCard.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, ResumeBuilderActivity.class);
-            startActivity(intent);
-        });
-
         // Initialize views
         binding.selectFileButton.setOnClickListener(v -> openFilePicker());
         binding.analyzeButton.setOnClickListener(v -> analyzeResume());
         binding.copyAllButton.setOnClickListener(v -> copyAllText());
+        binding.makeResumeButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ResumeBuilderActivity.class);
+            startActivity(intent);
+        });
         binding.analyzeButton.setEnabled(false);
     }
 
@@ -147,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     // Format the analysis result before displaying
                     String formattedResult = formatAnalysisResult(analysis);
                     binding.analysisResultTextView.setText(formattedResult);
-                    // Show the Copy All button if there's a result
+                    // Show the Copy All button if there’s a result
                     if (!formattedResult.isEmpty()) {
                         binding.copyAllButton.setVisibility(View.VISIBLE);
                     }
@@ -196,45 +144,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
         return formatted.toString().trim();
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.nav_home) {
-            // Already on home screen
-        } else if (id == R.id.nav_create) {
-            Intent intent = new Intent(this, ResumeBuilderActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_logout) {
-            prefsManager.logout();
-            Intent intent = new Intent(this, LoginActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-            finish();
-        }
-
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    private boolean isNightModeEnabled() {
-        return AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES;
-    }
-
-    private void setNightMode(boolean isNightMode) {
-        AppCompatDelegate.setDefaultNightMode(
-                isNightMode ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO
-        );
     }
 }
