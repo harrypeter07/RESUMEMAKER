@@ -35,8 +35,10 @@
             android:theme="@style/Theme.MyApplication.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"
+            android:exported="true"
+            android:launchMode="singleTop"
             android:theme="@style/Theme.MyApplication.NoActionBar" />
+
         <activity android:name=".ResumeBuilderActivity" />
         <activity android:name=".ResumePreviewActivity" />
     </application>

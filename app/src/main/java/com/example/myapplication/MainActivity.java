@@ -42,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+        // Setup toolbar
+        setSupportActionBar(binding.toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Resume Builder");
+        }
+
         // Initialize views
         binding.selectFileButton.setOnClickListener(v -> openFilePicker());
         binding.analyzeButton.setOnClickListener(v -> analyzeResume());
