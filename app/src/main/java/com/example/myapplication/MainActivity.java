@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -42,10 +44,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        // Setup toolbar
+        // Setup toolbar with proper styling
+        binding.toolbar.setBackgroundColor(getResources().getColor(R.color.purple_500));
+        binding.toolbar.setElevation(4f); // Set fixed elevation value
         setSupportActionBar(binding.toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Resume Builder");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
         // Initialize views
@@ -101,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     // Format the analysis result before displaying
                     String formattedResult = formatAnalysisResult(analysis);
                     binding.analysisResultTextView.setText(formattedResult);
-                    // Show the Copy All button if there’s a result
+                    // Show the Copy All button if there's a result
                     if (!formattedResult.isEmpty()) {
                         binding.copyAllButton.setVisibility(View.VISIBLE);
                     }
@@ -150,5 +156,20 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return formatted.toString().trim();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_chat) {
+            startActivity(new Intent(this, ChatActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
