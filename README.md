@@ -79,6 +79,24 @@ A modern Android application designed to help users create professional resumes 
 - GDPR compliance
 - Privacy policy
 
+## Performance
+
+### Optimization
+
+- Fast app loading
+- Minimal memory usage
+- Efficient data caching
+- Background processing
+- Battery optimization
+
+### Reliability
+
+- Crash reporting
+- Error handling
+- Auto-recovery
+- Offline support
+- Data persistence
+
 ## Installation Requirements
 
 - Android Studio Arctic Fox or later
