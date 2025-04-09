@@ -210,3 +210,21 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Security vulnerabilities
 - Documentation issues
 - Performance concerns
+
+## Roadmap
+
+### Short Term (Q2 2024)
+
+- Enhanced PDF templates
+- Improved chat support
+- Better dark mode
+- More language support
+- Performance optimization
+
+### Long Term (2024-2025)
+
+- AI-powered suggestions
+- Cloud synchronization
+- Resume analytics
+- Interview preparation
+- Career guidance
