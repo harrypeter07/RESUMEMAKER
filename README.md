@@ -61,6 +61,24 @@ A modern Android application designed to help users create professional resumes 
 - Custom color palettes
 - High contrast options
 
+## Color Themes
+
+### Light Theme
+
+- Primary: #1976D2 (Blue)
+- Secondary: #FF4081 (Pink)
+- Background: #FFFFFF (White)
+- Surface: #F5F5F5 (Light Gray)
+- Text: #212121 (Dark Gray)
+
+### Dark Theme
+
+- Primary: #42A5F5 (Light Blue)
+- Secondary: #FF80AB (Light Pink)
+- Background: #121212 (Dark Gray)
+- Surface: #1E1E1E (Darker Gray)
+- Text: #FFFFFF (White)
+
 ## Security Features
 
 ### User Authentication
