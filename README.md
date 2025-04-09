@@ -192,3 +192,21 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Production deployment
 - Monitoring
 - Rollback procedures
+
+## Contributing Guidelines
+
+### Code Contributions
+
+- Fork the repository
+- Create feature branch
+- Follow code style
+- Write unit tests
+- Submit pull request
+
+### Issue Reporting
+
+- Bug report template
+- Feature request format
+- Security vulnerabilities
+- Documentation issues
+- Performance concerns
