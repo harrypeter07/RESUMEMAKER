@@ -44,6 +44,23 @@ A modern Android application designed to help users create professional resumes 
 - Chat history
 - Quick response templates
 
+## UI/UX Features
+
+### Material Design Implementation
+
+- Consistent color scheme
+- Responsive layouts
+- Smooth animations
+- Intuitive navigation
+- Accessibility support
+
+### Dark Mode
+
+- Automatic theme switching
+- Battery-friendly dark theme
+- Custom color palettes
+- High contrast options
+
 ## Installation Requirements
 
 - Android Studio Arctic Fox or later
