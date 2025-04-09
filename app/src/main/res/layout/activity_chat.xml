@@ -56,7 +56,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Send message"
                 android:src="@android:drawable/ic_menu_send"
-                android:tint="?attr/colorPrimary" />
+                app:tint="?attr/colorPrimary" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout> 
