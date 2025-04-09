@@ -20,6 +20,30 @@ A modern Android application designed to help users create professional resumes 
 - Material Design UI
 - Dark mode support
 
+### Feature Details
+
+#### Resume Creation
+
+- Drag-and-drop sections
+- Rich text formatting
+- Custom section creation
+- Multiple page support
+- Auto-save functionality
+
+#### PDF Export
+
+- High-quality PDF generation
+- Custom paper size support
+- Multiple format options
+- Password protection (optional)
+
+#### Chat Support
+
+- Real-time assistance
+- File sharing capability
+- Chat history
+- Quick response templates
+
 ## Installation Requirements
 
 - Android Studio Arctic Fox or later
