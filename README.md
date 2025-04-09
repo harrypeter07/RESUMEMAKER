@@ -115,6 +115,24 @@ A modern Android application designed to help users create professional resumes 
 - Release tagging
 - Changelog maintenance
 
+## Testing
+
+### Unit Tests
+
+- Business logic coverage
+- UI component testing
+- Database testing
+- API integration tests
+- Mock data testing
+
+### Quality Assurance
+
+- Manual testing
+- Automated UI testing
+- Performance testing
+- Security testing
+- Cross-device testing
+
 ## Installation Requirements
 
 - Android Studio Arctic Fox or later
