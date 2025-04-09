@@ -21,7 +21,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".com.example.myapplication.SplashActivity"
+            android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.MyApplication.NoActionBar">
             <intent-filter>
@@ -30,23 +30,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".com.example.myapplication.LoginActivity"
+            android:name=".LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.MyApplication.NoActionBar" />
         <activity
-            android:name=".com.example.myapplication.MainActivity"
+            android:name=".MainActivity"
             android:theme="@style/Theme.MyApplication.NoActionBar"
             android:exported="true"
             android:launchMode="singleTop" />
 
         <activity 
-            android:name=".com.example.myapplication.ResumeBuilderActivity"
+            android:name=".ResumeBuilderActivity"
             android:exported="false" />
         <activity 
-            android:name=".com.example.myapplication.ResumePreviewActivity"
+            android:name=".ResumePreviewActivity"
             android:exported="false" />
         <activity
-            android:name=".com.example.myapplication.ChatActivity"
+            android:name=".ChatActivity"
             android:exported="false"
             android:theme="@style/Theme.MyApplication.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
