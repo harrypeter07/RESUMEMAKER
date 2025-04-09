@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.progressindicator.LinearProgressIndicator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +19,8 @@ public class ChatActivity extends AppCompatActivity {
     private ImageButton sendButton;
     private List<ChatMessage> messages;
     private ChatAdapter adapter;
+    private AIChatService aiChatService;
+    private LinearProgressIndicator progressIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,17 +30,26 @@ public class ChatActivity extends AppCompatActivity {
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Chat Support");
+        getSupportActionBar().setTitle("AI Resume Assistant");
 
         recyclerView = findViewById(R.id.recyclerView);
         messageInput = findViewById(R.id.messageInput);
         sendButton = findViewById(R.id.sendButton);
+        progressIndicator = findViewById(R.id.progressIndicator);
 
         messages = new ArrayList<>();
         adapter = new ChatAdapter(messages);
+        aiChatService = new AIChatService(this);
         
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+
+        // Add welcome message
+        messages.add(new ChatMessage(
+            "Hello! I'm your AI resume assistant. I can help you create, format, and improve your resume. What would you like help with?",
+            false
+        ));
+        adapter.notifyItemInserted(0);
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,25 +64,48 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void sendMessage(String message) {
-        ChatMessage chatMessage = new ChatMessage(message, true);
-        messages.add(chatMessage);
+        // Add user message
+        messages.add(new ChatMessage(message, true));
         adapter.notifyItemInserted(messages.size() - 1);
         recyclerView.scrollToPosition(messages.size() - 1);
         
-        // Simulate response (in a real app, this would be handled by a backend)
-        simulateResponse();
+        // Show progress indicator
+        progressIndicator.setVisibility(View.VISIBLE);
+        sendButton.setEnabled(false);
+        messageInput.setEnabled(false);
+
+        // Get AI response
+        aiChatService.sendMessage(message, new AIChatService.ChatCallback() {
+            @Override
+            public void onResponse(String response) {
+                runOnUiThread(() -> {
+                    progressIndicator.setVisibility(View.GONE);
+                    sendButton.setEnabled(true);
+                    messageInput.setEnabled(true);
+
+                    messages.add(new ChatMessage(response, false));
+                    adapter.notifyItemInserted(messages.size() - 1);
+                    recyclerView.scrollToPosition(messages.size() - 1);
+                });
+            }
+
+            @Override
+            public void onError(String error) {
+                runOnUiThread(() -> {
+                    progressIndicator.setVisibility(View.GONE);
+                    sendButton.setEnabled(true);
+                    messageInput.setEnabled(true);
+                    Toast.makeText(ChatActivity.this, error, Toast.LENGTH_SHORT).show();
+                });
+            }
+        });
     }
 
-    private void simulateResponse() {
-        // Simulate a delay
-        recyclerView.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                ChatMessage response = new ChatMessage("Thank you for your message. How can I help you today?", false);
-                messages.add(response);
-                adapter.notifyItemInserted(messages.size() - 1);
-                recyclerView.scrollToPosition(messages.size() - 1);
-            }
-        }, 1000);
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (aiChatService != null) {
+            aiChatService.shutdown();
+        }
     }
 } 

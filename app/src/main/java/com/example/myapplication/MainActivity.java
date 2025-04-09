@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.content.pm.PackageManager;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import androidx.annotation.NonNull;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,6 +65,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
         binding.analyzeButton.setEnabled(false);
+
+        // Check for permissions
+        if (!PermissionManager.checkPermissions(this)) {
+            showPermissionRationaleDialog();
+        }
     }
 
     private void openFilePicker() {
@@ -156,6 +163,60 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return formatted.toString().trim();
+    }
+
+    private void showPermissionRationaleDialog() {
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_permission_rationale, null);
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this)
+            .setView(dialogView)
+            .setCancelable(false);
+
+        final androidx.appcompat.app.AlertDialog dialog = builder.create();
+        dialog.show();
+
+        dialogView.findViewById(R.id.grantButton).setOnClickListener(v -> {
+            dialog.dismiss();
+            PermissionManager.requestPermissions(this);
+        });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PermissionManager.PERMISSION_REQUEST_CODE) {
+            boolean allGranted = true;
+            for (int result : grantResults) {
+                if (result != PackageManager.PERMISSION_GRANTED) {
+                    allGranted = false;
+                    break;
+                }
+            }
+            
+            if (!allGranted) {
+                if (PermissionManager.shouldShowPermissionRationale(this)) {
+                    // Show dialog explaining why permission is needed
+                    new MaterialAlertDialogBuilder(this)
+                        .setTitle("Permission Required")
+                        .setMessage("Storage permission is required to save your resume as PDF. Without this permission, you won't be able to save your work.")
+                        .setPositiveButton("Try Again", (dialog, which) -> PermissionManager.requestPermissions(this))
+                        .setNegativeButton("Cancel", null)
+                        .show();
+                } else {
+                    // User has selected "Don't ask again"
+                    new MaterialAlertDialogBuilder(this)
+                        .setTitle("Permission Denied")
+                        .setMessage("Storage permission has been denied. Please enable it in app settings to save your resumes.")
+                        .setPositiveButton("Open Settings", (dialog, which) -> {
+                            Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                            Uri uri = Uri.fromParts("package", getPackageName(), null);
+                            intent.setData(uri);
+                            startActivity(intent);
+                        })
+                        .setNegativeButton("Cancel", null)
+                        .show();
+                }
+            }
+        }
     }
 
     @Override
