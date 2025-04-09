@@ -97,6 +97,24 @@ A modern Android application designed to help users create professional resumes 
 - Offline support
 - Data persistence
 
+## Development
+
+### Code Quality
+
+- Clean architecture
+- SOLID principles
+- Code documentation
+- Unit testing
+- Integration testing
+
+### Version Control
+
+- Git workflow
+- Branch management
+- Code review process
+- Release tagging
+- Changelog maintenance
+
 ## Installation Requirements
 
 - Android Studio Arctic Fox or later
