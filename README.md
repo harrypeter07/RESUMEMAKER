@@ -61,6 +61,24 @@ A modern Android application designed to help users create professional resumes 
 - Custom color palettes
 - High contrast options
 
+## Security Features
+
+### User Authentication
+
+- Secure login system
+- Password encryption
+- Two-factor authentication (coming soon)
+- Session management
+- Automatic logout
+
+### Data Protection
+
+- End-to-end encryption
+- Secure file storage
+- Regular backups
+- GDPR compliance
+- Privacy policy
+
 ## Installation Requirements
 
 - Android Studio Arctic Fox or later
