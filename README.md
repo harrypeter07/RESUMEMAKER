@@ -228,3 +228,21 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Resume analytics
 - Interview preparation
 - Career guidance
+
+## Troubleshooting
+
+### Common Issues
+
+- Installation problems
+- Build errors
+- Runtime crashes
+- Performance issues
+- Network connectivity
+
+### Solutions
+
+- Clear cache and data
+- Update dependencies
+- Check permissions
+- Verify network
+- Contact support
