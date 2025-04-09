@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Theme Colors -->
+    <color name="primary">#42A5F5</color>
+    <color name="primary_dark">#1976D2</color>
+    <color name="primary_light">#90CAF9</color>
+    <color name="accent">#FF80AB</color>
+    <color name="secondary">#FF80AB</color>
+    <color name="secondary_dark">#FF4081</color>
+    <color name="secondary_light">#FFB2DD</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B3FFFFFF</color>
+    <color name="text_hint">#80FFFFFF</color>
+    
+    <!-- Background Colors -->
+    <color name="background">#121212</color>
+    <color name="surface">#1E1E1E</color>
+    <color name="card_background">#2D2D2D</color>
+    
+    <!-- Status Colors -->
+    <color name="success">#69F0AE</color>
+    <color name="error">#FF5252</color>
+    <color name="warning">#FFD740</color>
+    <color name="info">#64B5F6</color>
+    
+    <!-- Divider & Overlay -->
+    <color name="divider">#1FFFFFFF</color>
+    <color name="scrim">#52000000</color>
+</resources> 
