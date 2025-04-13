@@ -69,7 +69,7 @@ REMAA (Resume Enhancement and Management AI Assistant) is a innovative Android a
 
 #### AI Integration 🧠
 
-- **Google's Generative AI**: Advanced language model integration
+- **Google's Generative AI**: State-of-the-art language model integration
 - **Smart Analysis**: ML-powered resume content analysis
 - **Automated Scoring**: Intelligent resume quality assessment
 - **Pattern Recognition**: Identifies resume improvement areas
