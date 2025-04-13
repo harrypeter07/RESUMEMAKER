@@ -266,7 +266,7 @@ REMAA is proudly developed by a talented team of developers from [Your Universit
 ## 📱 Compatibility
 
 - Android 7.0 (API level 24) or higher
-- Optimized for both phones and tablets
+- Enhanced for both phones and tablets
 - Supports both portrait and landscape orientations
 
 ## 🛡️ Privacy & Permissions
