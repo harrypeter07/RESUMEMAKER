@@ -277,7 +277,7 @@ REMAA requires the following permissions:
 - Internet access (for AI features)
 - Camera (optional, for profile photo)
 
-All data processing is done locally on the device, ensuring your resume information remains private.
+All data processing is done locally on the device, ensuring your resume information remains confidential.
 
 ## 🔄 Updates & Versions
 
