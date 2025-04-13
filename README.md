@@ -250,7 +250,7 @@ REMAA is proudly developed by a talented team of developers from [Your Universit
 
 ### Team Collaboration
 
-- **Daily Standups**: Regular team meetings for progress updates
+- **Daily Standups**: Daily team meetings for progress updates
 - **Code Reviews**: Peer review process for quality assurance
 - **Agile Methodology**: Sprint planning and task management
 - **Documentation**: Comprehensive code and feature documentation
