@@ -125,7 +125,7 @@ REMAA (Resume Enhancement and Management AI Assistant) is a innovative Android a
 - Java Development Kit (JDK) 11
 - Minimum 4GB RAM recommended
 - Git for version control
-- Active internet connection for AI features
+- Stable internet connection for AI features
 
 ### Step-by-Step Installation
 
