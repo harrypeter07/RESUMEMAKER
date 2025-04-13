@@ -212,7 +212,7 @@ app/
 
 ## 👥 Team Members
 
-REMAA is proudly developed by a talented team of developers from [Your University/Organization Name]. Each member brings unique expertise to create this powerful resume enhancement tool.
+REMAA is proudly developed by a talented team of developers from [Your University/Organization Name]. Each member brings unique expertise to create this advanced resume enhancement tool.
 
 ### Core Team
 
