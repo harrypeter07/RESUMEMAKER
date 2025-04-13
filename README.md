@@ -38,7 +38,7 @@ REMAA (Resume Enhancement and Management AI Assistant) is a innovative Android a
 - **High-Quality Output**: Professional-grade PDF generation
 - **Custom Formatting**: Adjust margins, fonts, and spacing
 - **Multiple Styles**: Different styling options for each template
-- **Quick Download**: Direct save to device storage
+- **Instant Download**: Direct save to device storage
 - **Share Options**: Easy sharing via email or messaging
 
 #### AI Chat Support 💬
