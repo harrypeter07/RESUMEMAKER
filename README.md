@@ -123,16 +123,64 @@ REMAA (Resume Enhancement and Management AI Assistant) is a cutting-edge Android
 - Android Studio Arctic Fox or later
 - Android SDK 24 or higher
 - Java Development Kit (JDK) 11
+- Minimum 4GB RAM recommended
+- Git for version control
+- Active internet connection for AI features
 
-### Installation
+### Step-by-Step Installation
 
-1. Clone the repository:
+1. **Clone the Repository**
+
    ```bash
    git clone https://github.com/yourusername/REMAA.git
+   cd REMAA
    ```
-2. Open the project in Android Studio
-3. Sync project with Gradle files
-4. Run on your device or emulator
+
+2. **Android Studio Setup**
+
+   - Open Android Studio
+   - Select "Open an Existing Project"
+   - Navigate to the cloned REMAA directory
+   - Click "OK" to open the project
+
+3. **Configure Android SDK**
+
+   - Open Tools > SDK Manager
+   - Ensure Android SDK 34 is installed
+   - Install any missing platform tools
+   - Click "Apply" to save changes
+
+4. **Sync Project**
+
+   - Wait for initial project sync
+   - Click "Sync Project with Gradle Files"
+   - Resolve any dependency issues
+
+5. **API Configuration**
+
+   - Create a `local.properties` file if not exists
+   - Add your API keys:
+     ```properties
+     gemini.api.key=your_api_key_here
+     ```
+
+6. **Build Project**
+
+   - Select Build > Clean Project
+   - Select Build > Rebuild Project
+   - Fix any build errors if they occur
+
+7. **Run the App**
+   - Connect an Android device or start an emulator
+   - Select Run > Run 'app'
+   - Wait for the app to install and launch
+
+### Troubleshooting Installation
+
+- **Build Errors**: Try invalidating caches (File > Invalidate Caches)
+- **Gradle Issues**: Update Gradle version in gradle-wrapper.properties
+- **SDK Issues**: Verify SDK installation in SDK Manager
+- **API Key Issues**: Double-check API key format in local.properties
 
 ## 🏗️ Architecture
 
