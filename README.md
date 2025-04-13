@@ -367,7 +367,7 @@ androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
 - **Version Control**: All dependencies are managed in the project-level `build.gradle` file
 - **Compatibility**: All versions are tested and confirmed compatible
-- **Updates**: Regular dependency updates for security and performance
+- **Updates**: Periodic dependency updates for security and performance
 - **Size Optimization**: Minimal dependencies to keep APK size small
 - **ProGuard Rules**: Proper configuration for release builds
 
