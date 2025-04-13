@@ -16,8 +16,7 @@ public class PermissionManager {
     public static boolean checkPermissions(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             // Android 13+ permissions
-            return ContextCompat.checkSelfPermission(context, Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED
-                && ContextCompat.checkSelfPermission(context, Manifest.permission.READ_MEDIA_DOCUMENTS) == PackageManager.PERMISSION_GRANTED;
+            return ContextCompat.checkSelfPermission(context, Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED;
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             // Android 11+ permissions
             return ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
@@ -34,7 +33,6 @@ public class PermissionManager {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             // Android 13+ permissions
             permissions.add(Manifest.permission.READ_MEDIA_IMAGES);
-            permissions.add(Manifest.permission.READ_MEDIA_DOCUMENTS);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             // Android 11+ permissions
             permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
@@ -53,8 +51,7 @@ public class PermissionManager {
 
     public static boolean shouldShowPermissionRationale(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            return ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.READ_MEDIA_IMAGES)
-                || ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.READ_MEDIA_DOCUMENTS);
+            return ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.READ_MEDIA_IMAGES);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             return ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.READ_EXTERNAL_STORAGE);
         } else {

@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- Remove old storage permissions -->
-    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" /> -->
-    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" /> -->
-    <!-- Add modern media permission for images -->
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <!-- Optional: Keep this if you need document access -->
-    <uses-permission android:name="android.permission.READ_MEDIA_DOCUMENTS" />
-
-    <!-- For Android 13+ (API 33+) -->
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <uses-permission android:name="android.permission.READ_MEDIA_DOCUMENTS" />
     
-    <!-- For Android 10-12 (API 29-32) -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
+    <!-- Basic permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- Storage permissions for Android 13+ (API 33+) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    
+    <!-- Storage permissions for Android 11+ (API 30+) -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+        
+    <!-- Storage permissions for Android 10 and below -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="29" />
-    
-    <!-- For Android 9 and below (API 28 and below) -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" 
-        android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <uses-permission android:name="android.permission.READ_MEDIA_DOCUMENTS" />
 
     <application
         android:allowBackup="true"
@@ -33,6 +31,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
+        android:requestLegacyExternalStorage="true"
         tools:targetApi="31">
         <activity
             android:name=".SplashActivity"
@@ -52,7 +51,6 @@
             android:theme="@style/Theme.MyApplication.NoActionBar"
             android:exported="true"
             android:launchMode="singleTop" />
-
         <activity 
             android:name=".ResumeBuilderActivity"
             android:exported="false" />

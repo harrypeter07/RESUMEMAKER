@@ -1,266 +1,190 @@
-# Resume Builder App
+# REMAA - Resume Enhancement and Management AI Assistant 🚀
 
-A modern Android application designed to help users create professional resumes effortlessly. This app combines the power of material design with intuitive features to streamline the resume creation process. With built-in chat support, users can get real-time assistance while building their resumes.
+<div align="center">
 
-## Features
+![REMAA Logo](app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 
-### Resume Templates
+[![Android](https://img.shields.io/badge/Platform-Android-green.svg)](https://www.android.com)
+[![Java](https://img.shields.io/badge/Language-Java-orange.svg)](https://www.java.com)
+[![Material Design](https://img.shields.io/badge/Design-Material%20Design%203-blue.svg)](https://m3.material.io/)
+[![License](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
-- **Classic Template**: Traditional and time-tested format, perfect for conservative industries
-- **Modern Template**: Contemporary design with a clean and professional look
-- **Minimal Template**: Sleek and concise layout focusing on essential information
-- **Professional Template**: Balanced design suitable for all industries
+</div>
 
-### Core Features
+## 📱 About REMAA
 
-- Real-time resume preview
-- PDF export functionality
-- User authentication (Login/Signup)
-- Chat support for user communication
-- Material Design UI
-- Dark mode support
+REMAA (Resume Enhancement and Management AI Assistant) is a cutting-edge Android application that helps users create, manage, and enhance their resumes using artificial intelligence. Built with modern Material Design 3 principles, REMAA offers a seamless and intuitive user experience for professional resume creation.
 
-### Feature Details
+### 🌟 Key Features
 
-#### Resume Creation
+- **Smart Resume Creation** 📝
 
-- Drag-and-drop sections
-- Rich text formatting
-- Custom section creation
-- Multiple page support
-- Auto-save functionality
+  - Multiple professional templates
+  - Real-time preview
+  - Easy-to-use form interface
+  - Image upload support
 
-#### PDF Export
+- **AI-Powered Analysis** 🤖
 
-- High-quality PDF generation
-- Custom paper size support
-- Multiple format options
-- Password protection (optional)
+  - Instant resume scoring
+  - Section-by-section analysis
+  - Smart recommendations
+  - Action verb suggestions
 
-#### Chat Support
+- **PDF Export** 📄
 
-- Real-time assistance
-- File sharing capability
-- Chat history
-- Quick response templates
+  - High-quality PDF generation
+  - Professional formatting
+  - Multiple template styles
+  - Download to device storage
 
-## UI/UX Features
+- **AI Chat Support** 💬
 
-### Material Design Implementation
+  - Resume writing assistance
+  - Career advice
+  - Real-time suggestions
+  - Professional guidance
 
-- Consistent color scheme
-- Responsive layouts
-- Smooth animations
-- Intuitive navigation
-- Accessibility support
+- **Modern UI/UX** 🎨
+  - Material Design 3
+  - Dark mode support
+  - Smooth animations
+  - Intuitive navigation
 
-### Dark Mode
+## 🛠️ Technical Features
 
-- Automatic theme switching
-- Battery-friendly dark theme
-- Custom color palettes
-- High contrast options
+- **Architecture & Design**
 
-## Color Themes
+  - Clean Architecture principles
+  - MVVM pattern
+  - Material Design 3 components
+  - Responsive layouts
 
-### Light Theme
+- **AI Integration**
 
-- Primary: #1976D2 (Blue)
-- Secondary: #FF4081 (Pink)
-- Background: #FFFFFF (White)
-- Surface: #F5F5F5 (Light Gray)
-- Text: #212121 (Dark Gray)
+  - Google's Generative AI
+  - Smart content analysis
+  - Automated scoring system
+  - Intelligent suggestions
 
-### Dark Theme
+- **Security**
+  - Runtime permissions handling
+  - Secure PDF generation
+  - Private data protection
+  - Safe storage access
 
-- Primary: #42A5F5 (Light Blue)
-- Secondary: #FF80AB (Light Pink)
-- Background: #121212 (Dark Gray)
-- Surface: #1E1E1E (Darker Gray)
-- Text: #FFFFFF (White)
+## 📸 Screenshots
 
-## Security Features
+<div align="center">
+<table>
+  <tr>
+    <td><img src="screenshots/home.png" width="200"/></td>
+    <td><img src="screenshots/template.png" width="200"/></td>
+    <td><img src="screenshots/preview.png" width="200"/></td>
+  </tr>
+  <tr>
+    <td>Home Screen</td>
+    <td>Template Selection</td>
+    <td>Resume Preview</td>
+  </tr>
+</table>
+</div>
 
-### User Authentication
+## 🚀 Getting Started
 
-- Secure login system
-- Password encryption
-- Two-factor authentication (coming soon)
-- Session management
-- Automatic logout
-
-### Data Protection
-
-- End-to-end encryption
-- Secure file storage
-- Regular backups
-- GDPR compliance
-- Privacy policy
-
-## Performance
-
-### Optimization
-
-- Fast app loading
-- Minimal memory usage
-- Efficient data caching
-- Background processing
-- Battery optimization
-
-### Reliability
-
-- Crash reporting
-- Error handling
-- Auto-recovery
-- Offline support
-- Data persistence
-
-## Development
-
-### Code Quality
-
-- Clean architecture
-- SOLID principles
-- Code documentation
-- Unit testing
-- Integration testing
-
-### Version Control
-
-- Git workflow
-- Branch management
-- Code review process
-- Release tagging
-- Changelog maintenance
-
-## Testing
-
-### Unit Tests
-
-- Business logic coverage
-- UI component testing
-- Database testing
-- API integration tests
-- Mock data testing
-
-### Quality Assurance
-
-- Manual testing
-- Automated UI testing
-- Performance testing
-- Security testing
-- Cross-device testing
-
-## Installation Requirements
+### Prerequisites
 
 - Android Studio Arctic Fox or later
-- JDK 8 or higher
-- Android SDK API 34
-- Minimum 4GB RAM
-- 500MB free storage space
-- Git for version control
+- Android SDK 24 or higher
+- Java Development Kit (JDK) 11
 
-## Technical Details
+### Installation
 
-- Minimum SDK: 24 (Android 7.0)
-- Target SDK: 34 (Android 14)
-- Built with Java and XML
-- Uses AndroidX libraries
-- Navigation Components for fragment management
-- Material Design 3 components
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/REMAA.git
+   ```
+2. Open the project in Android Studio
+3. Sync project with Gradle files
+4. Run on your device or emulator
 
-## Dependencies
+## 🏗️ Architecture
 
-- AndroidX Navigation
-- Material Design Components
-- ConstraintLayout
-- iText PDF Library
-- OpenHTML to PDF
-- Google Generative AI
+REMAA follows a clean architecture approach with the following components:
 
-## Setup
+```
+app/
+├── java/
+│   ├── activities/       # UI Controllers
+│   ├── templates/        # Resume Templates
+│   ├── helpers/          # Utility Classes
+│   ├── services/         # AI Services
+│   └── models/          # Data Models
+├── res/
+│   ├── layout/          # UI Layouts
+│   ├── values/          # Resources
+│   └── drawable/        # Images
+```
 
-1. Clone the repository
-2. Open in Android Studio
-3. Sync Gradle files
-4. Run on an emulator or physical device
+### UML Diagrams
 
-## Contributing
+#### Class Diagram
 
-Feel free to submit issues and enhancement requests.
+![Class Diagram](docs/class_diagram.png)
 
-## License
+#### Sequence Diagram
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+![Sequence Diagram](docs/sequence_diagram.png)
 
-## Deployment
+## 👥 Team Members
 
-### CI/CD Pipeline
+REMAA is proudly developed by:
 
-- Automated builds
-- Test automation
-- Code quality checks
-- Release management
-- Version control integration
+- **Hassan** - _Team Lead & Backend Development_
+- **Harshal** - _UI/UX Design_
+- **Harshvardhan** - _AI Integration_
+- **Harshad** - _Frontend Development_
 
-### Release Process
+## 📱 Compatibility
 
-- Beta testing
-- Staged rollouts
-- Production deployment
-- Monitoring
-- Rollback procedures
+- Android 7.0 (API level 24) or higher
+- Optimized for both phones and tablets
+- Supports both portrait and landscape orientations
 
-## Contributing Guidelines
+## 🛡️ Privacy & Permissions
 
-### Code Contributions
+REMAA requires the following permissions:
 
-- Fork the repository
-- Create feature branch
-- Follow code style
-- Write unit tests
-- Submit pull request
+- Storage access (for PDF saving)
+- Internet access (for AI features)
+- Camera (optional, for profile photo)
 
-### Issue Reporting
+All data processing is done locally on the device, ensuring your resume information remains private.
 
-- Bug report template
-- Feature request format
-- Security vulnerabilities
-- Documentation issues
-- Performance concerns
+## 🔄 Updates & Versions
 
-## Roadmap
+- **Current Version**: 1.0.0
+- **Last Updated**: March 2024
+- **Android Target SDK**: 34
 
-### Short Term (Q2 2024)
+## 📞 Support & Contact
 
-- Enhanced PDF templates
-- Improved chat support
-- Better dark mode
-- More language support
-- Performance optimization
+For support, please:
 
-### Long Term (2024-2025)
+- Open an issue on GitHub
+- Contact us at: support@remaa.com
+- Visit our website: www.remaa.com
 
-- AI-powered suggestions
-- Cloud synchronization
-- Resume analytics
-- Interview preparation
-- Career guidance
+## 📄 License
 
-## Troubleshooting
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### Common Issues
+---
 
-- Installation problems
-- Build errors
-- Runtime crashes
-- Performance issues
-- Network connectivity
+<div align="center">
 
-### Solutions
+Made with ❤️ by Team REMAA
 
-- Clear cache and data
-- Update dependencies
-- Check permissions
-- Verify network
-- Contact support
+[⬆ back to top](#remaa---resume-enhancement-and-management-ai-assistant-)
+
+</div>
