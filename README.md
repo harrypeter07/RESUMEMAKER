@@ -87,7 +87,7 @@ REMAA (Resume Enhancement and Management AI Assistant) is a innovative Android a
 
 - **Lazy Loading**: Efficient resource management
 - **Image Compression**: Optimized image handling
-- **Cache Management**: Smart caching strategy
+- **Cache Management**: Efficient caching strategy
 - **Background Processing**: Non-blocking operations
 - **Memory Management**: Efficient memory utilization
 
