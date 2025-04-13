@@ -272,6 +272,61 @@ We welcome contributions to REMAA! Here's how you can help:
 - Add comments for complex logic
 - Write unit tests for new features
 
+## 📦 Dependencies
+
+### Core Dependencies
+
+#### AndroidX Libraries
+
+```gradle
+implementation "androidx.navigation:navigation-fragment:2.7.7"
+implementation "androidx.navigation:navigation-ui:2.7.7"
+implementation 'androidx.appcompat:appcompat:1.6.1'
+implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+implementation 'androidx.recyclerview:recyclerview:1.3.2'
+```
+
+#### UI Components
+
+```gradle
+implementation 'com.google.android.material:material:1.11.0'
+implementation 'com.airbnb.android:lottie:6.3.0'
+```
+
+#### AI & Machine Learning
+
+```gradle
+implementation 'com.google.ai.client.generativeai:generativeai:0.2.2'
+implementation 'com.google.guava:guava:32.1.3-android'
+```
+
+#### PDF Generation
+
+```gradle
+implementation 'com.itextpdf:itextpdf:5.5.13.3'
+implementation 'com.itextpdf:itext7-core:7.2.5'
+implementation 'com.itextpdf:html2pdf:4.0.5'
+implementation 'com.openhtmltopdf:openhtmltopdf-core:1.0.10'
+implementation 'com.openhtmltopdf:openhtmltopdf-pdfbox:1.0.10'
+implementation 'com.openhtmltopdf:openhtmltopdf-svg-support:1.0.10'
+```
+
+#### Testing Dependencies
+
+```gradle
+testImplementation 'junit:junit:4.13.2'
+androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+```
+
+### Dependency Management
+
+- **Version Control**: All dependencies are managed in the project-level `build.gradle` file
+- **Compatibility**: All versions are tested and confirmed compatible
+- **Updates**: Regular dependency updates for security and performance
+- **Size Optimization**: Minimal dependencies to keep APK size small
+- **ProGuard Rules**: Proper configuration for release builds
+
 ---
 
 <div align="center">
