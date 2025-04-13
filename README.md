@@ -184,7 +184,7 @@ REMAA (Resume Enhancement and Management AI Assistant) is a innovative Android a
 
 ## 🏗️ Architecture
 
-REMAA follows a clean architecture approach with the following components:
+REMAA follows a modular architecture approach with the following components:
 
 ```
 app/
