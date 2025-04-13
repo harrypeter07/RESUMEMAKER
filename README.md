@@ -212,12 +212,56 @@ app/
 
 ## 👥 Team Members
 
-REMAA is proudly developed by:
+REMAA is proudly developed by a talented team of developers from [Your University/Organization Name]. Each member brings unique expertise to create this powerful resume enhancement tool.
 
-- **Hassan** - _Team Lead & Backend Development_
-- **Harshal** - _UI/UX Design_
-- **Harshvardhan** - _AI Integration_
-- **Harshad** - _Frontend Development_
+### Core Team
+
+#### Hassan - Team Lead & Backend Development 👨‍💻
+
+- Project architecture and planning
+- Backend system design
+- Database management
+- API integration
+- Performance optimization
+
+#### Harshal - UI/UX Design 🎨
+
+- User interface design
+- User experience optimization
+- Material Design implementation
+- Animation and transitions
+- Accessibility features
+
+#### Harshvardhan - AI Integration 🤖
+
+- AI model integration
+- Natural language processing
+- Resume analysis algorithms
+- Chat system implementation
+- Machine learning features
+
+#### Harshad - Frontend Development 🖥️
+
+- Frontend architecture
+- Component development
+- State management
+- UI implementation
+- Cross-device testing
+
+### Team Collaboration
+
+- **Daily Standups**: Regular team meetings for progress updates
+- **Code Reviews**: Peer review process for quality assurance
+- **Agile Methodology**: Sprint planning and task management
+- **Documentation**: Comprehensive code and feature documentation
+- **Version Control**: Organized Git workflow and branching strategy
+
+### Contact Information
+
+- **Project Email**: team@remaa.com
+- **GitHub Organization**: [github.com/remaa-team](https://github.com/remaa-team)
+- **LinkedIn**: [linkedin.com/company/remaa](https://linkedin.com/company/remaa)
+- **Twitter**: [@remaa_app](https://twitter.com/remaa_app)
 
 ## 📱 Compatibility
 
