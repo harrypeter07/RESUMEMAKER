@@ -289,7 +289,7 @@ All data processing is done locally on the device, ensuring your resume informat
 
 For support, please:
 
-- Open an issue on GitHub
+- Create an issue on GitHub
 - Contact us at: support@remaa.com
 - Visit our website: www.remaa.com
 
