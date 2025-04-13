@@ -17,39 +17,45 @@ REMAA (Resume Enhancement and Management AI Assistant) is a cutting-edge Android
 
 ### 🌟 Key Features
 
-- **Smart Resume Creation** 📝
+#### Smart Resume Creation 📝
 
-  - Multiple professional templates
-  - Real-time preview
-  - Easy-to-use form interface
-  - Image upload support
+- **Multiple Templates**: Choose from Classic, Modern, Minimal, and Professional designs
+- **Real-time Preview**: See changes as you type
+- **Form Interface**: Easy-to-use input fields for all sections
+- **Image Upload**: Add your professional photo with cropping support
+- **Auto-Save**: Never lose your progress with automatic saving
 
-- **AI-Powered Analysis** 🤖
+#### AI-Powered Analysis 🤖
 
-  - Instant resume scoring
-  - Section-by-section analysis
-  - Smart recommendations
-  - Action verb suggestions
+- **Resume Scoring**: Get instant feedback on your resume quality
+- **Section Analysis**: Detailed review of each resume section
+- **Smart Suggestions**: AI-powered content improvement tips
+- **Keyword Analysis**: Industry-specific keyword recommendations
+- **Action Verb Enhancement**: Suggestions for stronger action verbs
 
-- **PDF Export** 📄
+#### PDF Export 📄
 
-  - High-quality PDF generation
-  - Professional formatting
-  - Multiple template styles
-  - Download to device storage
+- **High-Quality Output**: Professional-grade PDF generation
+- **Custom Formatting**: Adjust margins, fonts, and spacing
+- **Multiple Styles**: Different styling options for each template
+- **Quick Download**: Direct save to device storage
+- **Share Options**: Easy sharing via email or messaging
 
-- **AI Chat Support** 💬
+#### AI Chat Support 💬
 
-  - Resume writing assistance
-  - Career advice
-  - Real-time suggestions
-  - Professional guidance
+- **24/7 Assistance**: Get help anytime with our AI chat
+- **Resume Tips**: Professional advice on resume writing
+- **Career Guidance**: Industry-specific career recommendations
+- **Real-time Help**: Instant answers to your questions
+- **Context-Aware**: Suggestions based on your resume content
 
-- **Modern UI/UX** 🎨
-  - Material Design 3
-  - Dark mode support
-  - Smooth animations
-  - Intuitive navigation
+#### Modern UI/UX 🎨
+
+- **Material Design**: Latest Material Design 3 components
+- **Dark Mode**: Eye-friendly dark theme support
+- **Smooth Animations**: Polished transitions and effects
+- **Responsive Layout**: Works perfectly on all screen sizes
+- **Gesture Support**: Intuitive swipe and touch gestures
 
 ## 🛠️ Technical Features
 
