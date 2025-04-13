@@ -152,7 +152,7 @@ REMAA (Resume Enhancement and Management AI Assistant) is a innovative Android a
 
 4. **Sync Project**
 
-   - Wait for initial project sync
+   - Wait for automatic project sync
    - Click "Sync Project with Gradle Files"
    - Resolve any dependency issues
 
