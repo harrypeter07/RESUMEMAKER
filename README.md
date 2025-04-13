@@ -15,9 +15,9 @@
 
 REMAA (Resume Enhancement and Management AI Assistant) is a innovative Android application that helps users create, manage, and enhance their resumes using artificial intelligence. Built with modern Material Design 3 principles, REMAA offers a smooth and user-friendly user experience for professional resume creation.
 
-### 🌟 Key Features
+### �� Key Features
 
-#### Smart Resume Creation 📝
+#### Intelligent Resume Creation 📝
 
 - **Multiple Templates**: Choose from Classic, Modern, Minimal, and Professional designs
 - **Real-time Preview**: See changes as you type
