@@ -312,7 +312,7 @@ We welcome contributions to REMAA! Here's how you can help:
 ### Code Style
 
 - Follow Java code conventions
-- Use meaningful variable and function names
+- Use descriptive variable and function names
 - Add comments for complex logic
 - Write unit tests for new features
 
