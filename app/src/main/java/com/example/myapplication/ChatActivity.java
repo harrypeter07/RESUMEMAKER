@@ -10,6 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.List;
+import android.content.SharedPreferences;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import android.util.Base64;
 
 public class ChatActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -19,6 +25,8 @@ public class ChatActivity extends AppCompatActivity {
     private List<ChatMessage> chatMessages;
     private ChatAdapter chatAdapter;
     private View progressBar;
+    private static final String PREF_NAME = "ChatPrefs";
+    private static final String KEY_CHAT_HISTORY = "chatHistory";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +45,7 @@ public class ChatActivity extends AppCompatActivity {
             }
 
             // Set up RecyclerView
-            chatMessages = new ArrayList<>();
+            chatMessages = loadChatHistory();
             chatAdapter = new ChatAdapter(chatMessages);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setAdapter(chatAdapter);
@@ -52,12 +60,14 @@ public class ChatActivity extends AppCompatActivity {
             }
 
             // Add welcome message
-            chatMessages.add(new ChatMessage(
-                "Hello! I'm REMAA, your Resume Enhancement and Management AI Assistant. " +
-                "I can help you create, format, and improve your resume. What would you like help with?",
-                false
-            ));
-            chatAdapter.notifyItemInserted(0);
+            if (chatMessages.isEmpty()) {
+                chatMessages.add(new ChatMessage(
+                    "Hello! I'm REMAA, your Resume Enhancement and Management AI Assistant. " +
+                    "I can help you create, format, and improve your resume. What would you like help with?",
+                    false
+                ));
+                chatAdapter.notifyItemInserted(0);
+            }
 
             // Set up send button
             sendButton.setOnClickListener(v -> sendMessage());
@@ -79,6 +89,7 @@ public class ChatActivity extends AppCompatActivity {
             chatMessages.add(new ChatMessage(message, true));
             chatAdapter.notifyItemInserted(chatMessages.size() - 1);
             recyclerView.scrollToPosition(chatMessages.size() - 1);
+            saveChatHistory();
 
             // Clear input and show progress
             messageInput.setText("");
@@ -95,10 +106,10 @@ public class ChatActivity extends AppCompatActivity {
                             progressBar.setVisibility(View.GONE);
                             sendButton.setEnabled(true);
                             messageInput.setEnabled(true);
-
                             chatMessages.add(new ChatMessage(response, false));
                             chatAdapter.notifyItemInserted(chatMessages.size() - 1);
                             recyclerView.scrollToPosition(chatMessages.size() - 1);
+                            saveChatHistory();
                         } catch (Exception e) {
                             showError("Error displaying response: " + e.getMessage());
                         }
@@ -140,5 +151,39 @@ public class ChatActivity extends AppCompatActivity {
             // If even showing the error fails, log it
             e.printStackTrace();
         }
+    }
+
+    private void saveChatHistory() {
+        try {
+            SharedPreferences prefs = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(chatMessages);
+            oos.close();
+            String encoded = Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
+            prefs.edit().putString(KEY_CHAT_HISTORY, encoded).apply();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private List<ChatMessage> loadChatHistory() {
+        try {
+            SharedPreferences prefs = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+            String encoded = prefs.getString(KEY_CHAT_HISTORY, null);
+            if (encoded != null) {
+                byte[] data = Base64.decode(encoded, Base64.DEFAULT);
+                ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(data));
+                Object obj = ois.readObject();
+                ois.close();
+                if (obj instanceof List<?>) {
+                    //noinspection unchecked
+                    return (List<ChatMessage>) obj;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ArrayList<>();
     }
 } 

@@ -1,26 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" href="styles4.css">
-</head>
-<body>
-    <div class="resume-container">
-        <div class="header">
-            <h1>{NAME}</h1>
-            <p>{EMAIL} | {PHONE}</p>
-        </div>
-        <div class="section experience">
-            <h2>Experience</h2>
-            <ul>{EXPERIENCE}</ul>
-        </div>
-        <div class="section education">
-            <h2>Education</h2>
-            <ul>{EDUCATION}</ul>
-        </div>
-        <div class="section skills">
-            <h2>Skills</h2>
-            <ul>{SKILLS}</ul>
-        </div>
-    </div>
-</body>
+	<head>
+		<link rel="stylesheet" href="styles4.css" />
+	</head>
+	<body>
+		<div class="resume-container">
+			<div class="sidebar">
+				<div class="profile-pic">{PHOTO}</div>
+				<h1>{NAME}</h1>
+				<p>{EMAIL}</p>
+				<p>{PHONE}</p>
+				<p>{ADDRESS}</p>
+				<p>{LINKS}</p>
+			</div>
+			<div class="main-content">
+				<div class="section objective">
+					<h2>Objective</h2>
+					<p>{OBJECTIVE}</p>
+				</div>
+				<div class="section experience">
+					<h2>Professional Experience</h2>
+					<ul>
+						{EXPERIENCE}
+					</ul>
+				</div>
+				<div class="section education">
+					<h2>Education</h2>
+					<ul>
+						{EDUCATION}
+					</ul>
+				</div>
+				<div class="section certifications">
+					<h2>Certifications</h2>
+					<ul>
+						{CERTIFICATIONS}
+					</ul>
+				</div>
+				<div class="section skills">
+					<h2>Skills</h2>
+					<ul>
+						{SKILLS}
+					</ul>
+				</div>
+				<div class="section languages">
+					<h2>Languages</h2>
+					<ul>
+						{LANGUAGES}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

@@ -7,43 +7,41 @@
         android:padding="16dp">
 
         <androidx.cardview.widget.CardView
+            style="@style/Widget.App.CardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            android:padding="16dp">
+            android:padding="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Build Your Resume"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
+                    style="@style/TextAppearance.App.Headline1"
                     android:gravity="center"
-                    android:textColor="#2c3e50"
                     android:layout_marginBottom="16dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Select Template:"
-                    android:textSize="18sp"
-                    android:textColor="#34495e"
+                    style="@style/TextAppearance.App.Body1"
                     android:layout_marginBottom="8dp" />
 
                 <Spinner
                     android:id="@+id/templateSpinner"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:backgroundTint="#ecf0f1"
+                    android:backgroundTint="@color/secondary_light"
                     android:layout_marginBottom="16dp" />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Full Name"
@@ -56,6 +54,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
@@ -68,6 +67,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Phone Number"
@@ -80,6 +80,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Address"
@@ -92,6 +93,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="LinkedIn/Portfolio URL"
@@ -104,6 +106,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Objective/Summary"
@@ -117,6 +120,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Work Experience (one per line)"
@@ -130,6 +134,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Education (one per line)"
@@ -143,6 +148,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Certifications (one per line)"
@@ -156,6 +162,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Skills (one per line)"
@@ -169,6 +176,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Languages (one per line)"
@@ -183,20 +191,22 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/uploadImageButton"
+                    style="@style/Widget.App.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Upload Profile Image"
-                    app:backgroundTint="#e67e22"
-                    android:textColor="@android:color/white"
+                    app:backgroundTint="@color/tertiary"
+                    android:textColor="@color/text_on_tertiary"
                     android:layout_marginBottom="16dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/generateResumeButton"
+                    style="@style/Widget.App.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Generate Resume"
-                    android:textColor="@android:color/white"
-                    app:backgroundTint="#3498db"
+                    android:textColor="@color/text_on_primary"
+                    app:backgroundTint="@color/primary"
                     android:layout_marginBottom="16dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>

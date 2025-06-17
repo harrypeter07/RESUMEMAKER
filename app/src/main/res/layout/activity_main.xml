@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 <androidx.drawerlayout.widget.DrawerLayout
     android:id="@+id/drawerLayout"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/background">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -21,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
-                app:titleTextColor="@android:color/white"
+                app:titleTextColor="@color/text_on_primary"
                 app:navigationIcon="@drawable/ic_menu"
                 app:elevation="4dp">
 
@@ -37,17 +38,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Resume Analyzer"
-                        android:textColor="@android:color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        style="@style/TextAppearance.App.Headline1"
+                        android:textColor="@color/text_on_primary" />
 
                     <TextView
                         android:id="@+id/usernameText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Welcome, User"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        style="@style/TextAppearance.App.Body2"
+                        android:textColor="@color/text_on_primary" />
                 </LinearLayout>
 
             </com.google.android.material.appbar.MaterialToolbar>
@@ -59,39 +59,38 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="24dp"
-            android:background="@android:color/white"
+            android:background="@color/background"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.App.CardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp">
+                android:layout_marginBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="20dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="About Resume Analyzer"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
+                        style="@style/TextAppearance.App.Headline1"
                         android:layout_marginBottom="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Upload your resume and get instant analysis and suggestions to improve your professional profile."
-                        android:textColor="?android:attr/textColorSecondary"
+                        style="@style/TextAppearance.App.Body2"
                         android:layout_marginBottom="16dp" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/selectFileButton"
+                        style="@style/Widget.App.Button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Select Resume File"
@@ -104,11 +103,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="No file selected"
-                        android:textColor="?android:attr/textColorSecondary"
+                        style="@style/TextAppearance.App.Body2"
                         android:layout_marginBottom="16dp" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/analyzeButton"
+                        style="@style/Widget.App.Button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Analyze Resume"
@@ -141,8 +141,8 @@
                         android:text="Copy All Results"
                         android:visibility="gone"
                         android:layout_marginBottom="8dp"
-                        android:backgroundTint="@android:color/holo_blue_light"
-                        android:textColor="@android:color/white" />
+                        android:backgroundTint="@color/tertiary"
+                        android:textColor="@color/text_on_tertiary" />
 
                     <ScrollView
                         android:layout_width="match_parent"
@@ -155,7 +155,8 @@
                             android:textSize="16sp"
                             android:textIsSelectable="true"
                             android:padding="8dp"
-                            android:lineSpacingExtra="4dp" />
+                            android:lineSpacingExtra="4dp"
+                            style="@style/TextAppearance.App.Body1" />
                     </ScrollView>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

@@ -16,6 +16,7 @@ import androidx.databinding.DataBindingUtil;
 import com.example.myapplication.databinding.ActivityResumeBuilderBinding;
 import java.util.HashMap;
 import java.util.Map;
+import android.app.ProgressDialog;
 
 public class ResumeBuilderActivity extends AppCompatActivity {
 
@@ -24,11 +25,13 @@ public class ResumeBuilderActivity extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST_CODE = 103;
     private Uri imageUri;
     private Map<String, ResumeTemplate> templateMap;
+    private AIChatService aiChatService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_resume_builder);
+        aiChatService = new AIChatService(this);
 
         templateMap = new HashMap<>();
         templateMap.put("Modern Template", new ModernTemplate());
@@ -78,15 +81,46 @@ public class ResumeBuilderActivity extends AppCompatActivity {
             return;
         }
 
+        if (objective.isEmpty()) {
+            // Auto-generate objective using AI
+            String prompt = "Generate a professional resume summary (bio/objective) for the following user. " +
+                    "Name: " + name + ", Email: " + email + ", Phone: " + phone + ", Address: " + address + ", Links: " + links +
+                    ", Experience: " + experience + ", Education: " + education + ", Certifications: " + certifications +
+                    ", Skills: " + skills + ", Languages: " + languages + ". The summary should be concise, professional, and suitable for the top of a resume.";
+            ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage("Generating professional summary using AI...");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+            aiChatService.sendMessage(prompt, new AIChatService.ChatCallback() {
+                @Override
+                public void onResponse(String aiObjective) {
+                    runOnUiThread(() -> {
+                        progressDialog.dismiss();
+                        binding.objectiveEditText.setText(aiObjective);
+                        proceedWithResume(name, email, phone, address, links, aiObjective, experience, education, certifications, skills, languages, selectedTemplateName);
+                    });
+                }
+                @Override
+                public void onError(String error) {
+                    runOnUiThread(() -> {
+                        progressDialog.dismiss();
+                        Toast.makeText(ResumeBuilderActivity.this, "Failed to generate summary: " + error, Toast.LENGTH_LONG).show();
+                    });
+                }
+            });
+            return;
+        }
+        proceedWithResume(name, email, phone, address, links, objective, experience, education, certifications, skills, languages, selectedTemplateName);
+    }
+
+    private void proceedWithResume(String name, String email, String phone, String address, String links, String objective, String experience, String education, String certifications, String skills, String languages, String selectedTemplateName) {
         String experienceItems = formatHtmlList(experience);
         String educationItems = formatHtmlList(education);
         String certificationsItems = formatHtmlList(certifications);
         String skillsItems = formatHtmlList(skills);
         String languagesItems = formatHtmlList(languages);
-
         ResumeTemplate template = templateMap.get(selectedTemplateName);
         String generatedResumeHtml = template.generateHtmlPreview(name, email, phone, address, links, objective, experienceItems, educationItems, certificationsItems, skillsItems, languagesItems, imageUri, this);
-
         Intent intent = new Intent(this, ResumePreviewActivity.class);
         intent.putExtra("htmlContent", generatedResumeHtml);
         intent.putExtra("name", name);
