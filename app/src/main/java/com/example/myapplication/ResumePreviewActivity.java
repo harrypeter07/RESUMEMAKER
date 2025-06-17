@@ -31,7 +31,7 @@ public class ResumePreviewActivity extends AppCompatActivity {
     private MaterialButton downloadPdfButton;
     private String htmlContent;
     private ResumeTemplate template;
-    private String name, email, phone, address, links, objective, experience, education, certifications, skills, languages;
+    private String name, email, phone, address, links, objective, about, introduction, experience, education, certifications, skills, languages;
     private Uri imageUri;
     private static final int STORAGE_WRITE_PERMISSION_CODE = 104;
     private static final int MANAGE_STORAGE_PERMISSION_CODE = 105;
@@ -64,6 +64,8 @@ public class ResumePreviewActivity extends AppCompatActivity {
         address = intent.getStringExtra("address");
         links = intent.getStringExtra("links");
         objective = intent.getStringExtra("objective");
+        about = intent.getStringExtra("about");
+        introduction = intent.getStringExtra("introduction");
         experience = intent.getStringExtra("experience");
         education = intent.getStringExtra("education");
         certifications = intent.getStringExtra("certifications");
@@ -129,17 +131,17 @@ public class ResumePreviewActivity extends AppCompatActivity {
             Document document = new Document();
             PdfWriter.getInstance(document, fos);
             document.open();
-            template.generatePdfContent(document, name, email, phone, address, links, objective, experience, education, certifications, skills, languages, imageUri, this);
+            template.generatePdfContent(document, name, email, phone, address, links, objective, about, introduction, experience, education, certifications, skills, languages, imageUri, this);
             document.close();
             fos.close();
 
             // Trigger resume analysis after PDF generation
             String resumeContent = String.format(
                 "Name: %s\nEmail: %s\nPhone: %s\nAddress: %s\n" +
-                "Links: %s\nObjective: %s\nExperience: %s\n" +
+                "Links: %s\nObjective: %s\nAbout: %s\nIntroduction: %s\nExperience: %s\n" +
                 "Education: %s\nCertifications: %s\nSkills: %s\n" +
                 "Languages: %s",
-                name, email, phone, address, links, objective,
+                name, email, phone, address, links, objective, about, introduction,
                 experience, education, certifications, skills, languages
             );
             
