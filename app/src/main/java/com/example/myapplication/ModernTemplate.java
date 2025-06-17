@@ -24,7 +24,7 @@ import java.util.List;
 public class ModernTemplate implements ResumeTemplate {
     @Override
     public String generateHtmlPreview(String name, String email, String phone, String address, String links, String objective,
-                                      String experience, String education, String certifications, String skills, String languages,
+                                      String about, String introduction, String experience, String education, String certifications, String skills, String languages,
                                       Uri imageUri, Context context) {
         String css = "body { font-family: Helvetica, sans-serif; margin: 0; background: #ecf0f1; }" +
                 "h1 { color: #fff; background: #2980b9; padding: 20px; text-align: center; font-size: 28px; }" +
@@ -45,6 +45,8 @@ public class ModernTemplate implements ResumeTemplate {
                 "<div class='container'>" +
                 "<div class='left'>" + imageTag +
                 (objective.isEmpty() ? "" : "<h2>Objective</h2><p>" + objective + "</p>") +
+                (about.isEmpty() ? "" : "<h2>About Me</h2><p>" + about + "</p>") +
+                (introduction.isEmpty() ? "" : "<h2>Introduction</h2><p>" + introduction + "</p>") +
                 "<h2>Skills</h2><ul>" + skills + "</ul>" +
                 (languages.isEmpty() ? "" : "<h2>Languages</h2><ul>" + languages + "</ul>") +
                 "</div>" +
@@ -57,7 +59,7 @@ public class ModernTemplate implements ResumeTemplate {
 
     @Override
     public void generatePdfContent(Document document, String name, String email, String phone, String address, String links,
-                                   String objective, String experience, String education, String certifications, String skills,
+                                   String objective, String about, String introduction, String experience, String education, String certifications, String skills,
                                    String languages, Uri imageUri, Context context) throws DocumentException {
         BaseColor primaryColor = new BaseColor(41, 128, 185);
         Font titleFont = new Font(Font.FontFamily.HELVETICA, 28, Font.BOLD, BaseColor.WHITE);
@@ -112,6 +114,17 @@ public class ModernTemplate implements ResumeTemplate {
             leftCell.addElement(new Paragraph("OBJECTIVE", headingFont));
             leftCell.addElement(new Paragraph(objective, normalFont));
         }
+
+        if (!about.isEmpty()) {
+            leftCell.addElement(new Paragraph("ABOUT ME", headingFont));
+            leftCell.addElement(new Paragraph(about, normalFont));
+        }
+
+        if (!introduction.isEmpty()) {
+            leftCell.addElement(new Paragraph("INTRODUCTION", headingFont));
+            leftCell.addElement(new Paragraph(introduction, normalFont));
+        }
+
         leftCell.addElement(new Paragraph("SKILLS", headingFont));
         for (String skill : parseTextToList(skills)) {
             leftCell.addElement(new Paragraph("• " + skill, normalFont));
