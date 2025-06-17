@@ -20,7 +20,7 @@ import java.util.List;
 public class ClassicTemplate implements ResumeTemplate {
     @Override
     public String generateHtmlPreview(String name, String email, String phone, String address, String links, String objective,
-                                      String experience, String education, String certifications, String skills, String languages,
+                                      String about, String introduction, String experience, String education, String certifications, String skills, String languages,
                                       Uri imageUri, Context context) {
         String css = "body { font-family: 'Arial', sans-serif; margin: 40px; line-height: 1.5; color: #333; }" +
                 ".container { max-width: 800px; margin: 0 auto; }" +
@@ -37,6 +37,8 @@ public class ClassicTemplate implements ResumeTemplate {
                 "<h1>" + name + "</h1>" +
                 "<div class='contact-info'>" + email + " | " + phone + (address.isEmpty() ? "" : " | " + address) + (links.isEmpty() ? "" : " | <a href='" + links + "'>" + links + "</a>") + "</div>" +
                 (objective.isEmpty() ? "" : "<h2>Objective</h2><p>" + objective + "</p>") +
+                (about.isEmpty() ? "" : "<h2>About Me</h2><p>" + about + "</p>") +
+                (introduction.isEmpty() ? "" : "<h2>Introduction</h2><p>" + introduction + "</p>") +
                 "<h2>Experience</h2><ul>" + experience + "</ul>" +
                 "<h2>Education</h2><ul>" + education + "</ul>" +
                 (certifications.isEmpty() ? "" : "<h2>Certifications</h2><ul>" + certifications + "</ul>") +
@@ -47,7 +49,7 @@ public class ClassicTemplate implements ResumeTemplate {
 
     @Override
     public void generatePdfContent(Document document, String name, String email, String phone, String address, String links,
-                                   String objective, String experience, String education, String certifications, String skills,
+                                   String objective, String about, String introduction, String experience, String education, String certifications, String skills,
                                    String languages, Uri imageUri, Context context) throws DocumentException {
         Font titleFont = new Font(Font.FontFamily.HELVETICA, 26, Font.BOLD, new BaseColor(26, 60, 94));
         Font headingFont = new Font(Font.FontFamily.HELVETICA, 16, Font.BOLD, new BaseColor(44, 62, 80));
@@ -84,6 +86,18 @@ public class ClassicTemplate implements ResumeTemplate {
         if (!objective.isEmpty()) {
             document.add(new Paragraph("OBJECTIVE", headingFont));
             document.add(new Paragraph(objective, normalFont));
+            document.add(new Paragraph(" "));
+        }
+
+        if (!about.isEmpty()) {
+            document.add(new Paragraph("ABOUT ME", headingFont));
+            document.add(new Paragraph(about, normalFont));
+            document.add(new Paragraph(" "));
+        }
+
+        if (!introduction.isEmpty()) {
+            document.add(new Paragraph("INTRODUCTION", headingFont));
+            document.add(new Paragraph(introduction, normalFont));
             document.add(new Paragraph(" "));
         }
 

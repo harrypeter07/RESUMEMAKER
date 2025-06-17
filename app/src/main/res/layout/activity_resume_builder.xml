@@ -123,6 +123,34 @@
                     style="@style/Widget.App.TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="About Me (AI will generate if empty)"
+                    android:layout_marginBottom="8dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/aboutEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:minLines="3" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Introduction (AI will generate if empty)"
+                    android:layout_marginBottom="8dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/introductionEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:minLines="3" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:hint="Work Experience (one per line)"
                     android:layout_marginBottom="8dp">
                     <com.google.android.material.textfield.TextInputEditText

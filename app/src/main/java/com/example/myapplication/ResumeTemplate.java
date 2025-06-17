@@ -7,9 +7,9 @@ import com.itextpdf.text.DocumentException;
 
 public interface ResumeTemplate {
     String generateHtmlPreview(String name, String email, String phone, String address, String links, String objective,
-                               String experience, String education, String certifications, String skills, String languages,
+                               String about, String introduction, String experience, String education, String certifications, String skills, String languages,
                                Uri imageUri, Context context);
     void generatePdfContent(Document document, String name, String email, String phone, String address, String links,
-                            String objective, String experience, String education, String certifications, String skills,
+                            String objective, String about, String introduction, String experience, String education, String certifications, String skills,
                             String languages, Uri imageUri, Context context) throws DocumentException;
 }
