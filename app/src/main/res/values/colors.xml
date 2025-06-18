@@ -16,7 +16,7 @@
     <color name="background">#F7F9FB</color>
     <color name="surface">#FFFFFF</color>
     <color name="card_background">#F5F7FA</color>
-    <color name="divider">#E0E3E7</color>
+    <color name="divider">#E0E0E0</color>
     <color name="scrim">#52000000</color>
     <!-- Text Colors -->
     <color name="text_primary">#212121</color>

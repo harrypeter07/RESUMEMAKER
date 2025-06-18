@@ -74,13 +74,18 @@
                     android:orientation="vertical"
                     android:padding="20dp">
 
+                    <!-- About Section -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="About Resume Analyzer"
                         style="@style/TextAppearance.App.Headline1"
+                        android:layout_marginBottom="4dp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
                         android:layout_marginBottom="8dp" />
-
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -88,6 +93,18 @@
                         style="@style/TextAppearance.App.Body2"
                         android:layout_marginBottom="16dp" />
 
+                    <!-- Upload Section -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Upload Resume"
+                        style="@style/TextAppearance.App.Headline1"
+                        android:layout_marginBottom="4dp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginBottom="8dp" />
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/selectFileButton"
                         style="@style/Widget.App.Button"
@@ -97,7 +114,6 @@
                         android:layout_marginBottom="8dp"
                         app:icon="@drawable/ic_file"
                         app:iconGravity="start" />
-
                     <TextView
                         android:id="@+id/selectedFileTextView"
                         android:layout_width="match_parent"
@@ -106,48 +122,22 @@
                         style="@style/TextAppearance.App.Body2"
                         android:layout_marginBottom="16dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/analyzeButton"
-                        style="@style/Widget.App.Button"
+                    <!-- Analysis Section -->
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Analyze Resume"
-                        android:layout_marginBottom="8dp"
-                        app:icon="@drawable/ic_analyze"
-                        app:iconGravity="start" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/makeResumeButton"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:text="Analysis Result"
+                        style="@style/TextAppearance.App.Headline1"
+                        android:layout_marginBottom="4dp" />
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Make Resume"
-                        android:layout_marginBottom="16dp"
-                        app:icon="@drawable/ic_create"
-                        app:iconGravity="start" />
-
-                    <ProgressBar
-                        android:id="@+id/progressBar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:visibility="gone"
-                        android:layout_marginBottom="16dp" />
-
-                    <Button
-                        android:id="@+id/copyAllButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Copy All Results"
-                        android:visibility="gone"
-                        android:layout_marginBottom="8dp"
-                        android:backgroundTint="@color/tertiary"
-                        android:textColor="@color/text_on_tertiary" />
-
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginBottom="8dp" />
                     <ScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp">
                         <TextView
                             android:id="@+id/analysisResultTextView"
                             android:layout_width="match_parent"
@@ -158,6 +148,53 @@
                             android:lineSpacingExtra="4dp"
                             style="@style/TextAppearance.App.Body1" />
                     </ScrollView>
+
+                    <!-- Actions Section -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Actions"
+                        style="@style/TextAppearance.App.Headline1"
+                        android:layout_marginBottom="4dp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginBottom="8dp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/analyzeButton"
+                        style="@style/Widget.App.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Analyze Resume"
+                        android:layout_marginBottom="8dp"
+                        app:icon="@drawable/ic_analyze"
+                        app:iconGravity="start" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/makeResumeButton"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Make Resume"
+                        android:layout_marginBottom="8dp"
+                        app:icon="@drawable/ic_create"
+                        app:iconGravity="start" />
+                    <Button
+                        android:id="@+id/copyAllButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Copy All Results"
+                        android:visibility="gone"
+                        android:layout_marginBottom="8dp"
+                        android:backgroundTint="@color/tertiary"
+                        android:textColor="@color/text_on_tertiary" />
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        android:layout_marginBottom="8dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
