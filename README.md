@@ -15,7 +15,7 @@
 
 REMAA (Resume Enhancement and Management AI Assistant) is a innovative Android application that helps users create, manage, and enhance their resumes using artificial intelligence. Built with modern Material Design 3 principles, REMAA offers a smooth and user-friendly user experience for professional resume creation.
 
-### �� Key Features
+### 💡 Key Features
 
 #### Intelligent Resume Creation 📝
 
@@ -24,6 +24,7 @@ REMAA (Resume Enhancement and Management AI Assistant) is a innovative Android a
 - **Form Interface**: Simple-to-use input fields for all sections
 - **Image Upload**: Add your professional photo with cropping support
 - **Auto-Save**: Never lose your progress with automatic saving
+- **AI-Generated Sections**: Automatically generates compelling "About Me" and "Introduction" content for your resume if left empty.
 
 #### AI-Powered Analysis 🤖
 
@@ -48,6 +49,7 @@ REMAA (Resume Enhancement and Management AI Assistant) is a innovative Android a
 - **Career Guidance**: Industry-specific career recommendations
 - **Real-time Help**: Instant answers to your questions
 - **Context-Aware**: Suggestions based on your resume content
+- **Persistent Chat History**: Your chat conversations are now saved and restored across app sessions.
 
 #### Modern UI/UX 🎨
 
@@ -216,7 +218,7 @@ REMAA is proudly developed by a talented team of developers from [Your Universit
 
 ### Core Team
 
-#### Hassan - Team Lead & Backend Development 👨‍💻
+#### Omsing Bais - Team Lead & Backend Development 👨‍💻
 
 - Project architecture and planning
 - Backend system design
@@ -224,7 +226,7 @@ REMAA is proudly developed by a talented team of developers from [Your Universit
 - API integration
 - Performance optimization
 
-#### Harshal - UI/UX Design 🎨
+#### Harshal Pande - UI/UX Design 🎨
 
 - User interface design
 - User experience optimization
@@ -232,7 +234,7 @@ REMAA is proudly developed by a talented team of developers from [Your Universit
 - Animation and transitions
 - Accessibility features
 
-#### Harshvardhan - AI Integration 🤖
+#### Harshvardhan Singh - AI Integration 🤖
 
 - AI model integration
 - Natural language processing
